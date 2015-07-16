@@ -9,29 +9,29 @@ angular.module('myApp.viewEvents', ['ngRoute'])
   });
 }])
 
-.controller('ViewEventsCtrl','http', [$http,function() {
+.controller('ViewEventsCtrl', ['$scope','$http',function($scope,$http) {
 $scope.errorMessage = '';
 
 
 
-    var url="http://157.227.99.1:9000/getEvent/"+currentCategory;
-   $http.get(url).success( function(response) {
-$scope.events = response; 
-console.log(" the users list is as belwo : "+response);
-}).failure( function(){
-    console.log(" failed to fetch the data : ");
-    $scope.errorMessage = "failed to fetch the daya "; 
-});
+    var url="http://localhost:9000/getEvent/"+currentCategory;
+    console.log('URL built is '+url)
+    
+           var responsePromise = $http.get(url);
+
+                responsePromise.success(function(data, status, headers, config) {
+                    $scope.myData.fromServer = data.title;
+                    $scope.events = data;
+                });
+                responsePromise.error(function(data, status, headers, config) {
+                    alert("AJAX failed!"+headers);
+                    $scope.errorMessage = "failed to fetch the daya "; 
+                });
+        
+        
 
 
 
 
-function getDataFromServer(){
-    var url="http://157.227.99.1:9000/getEvent/"+currentCategory;
-   $http.get(url).success( function(response) {
-//                           $scope.students = response; 
-console.log(" the users list is as belwo : "+response);
-                        });
-}
 
 }]);

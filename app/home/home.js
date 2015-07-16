@@ -9,27 +9,32 @@ angular.module('myApp.home', ['ngRoute'])
   });
 }])
 
-.controller('HomeCtrl', [function() {
+.controller('HomeCtrl', ['$scope','$location',function($scope,$location) {
 
 $scope.addEvent = function() {
-    alert("Test App addCategoryNGClick")
+    console.log("Test App addCategoryNGClick")
+    };
+    
+$scope.viewEvent = function() {
+    console.log("Test App addCategoryNGClick")
     };
 
 $scope.showCricket = function() {
-    alert("Test App addCategoryNGClick")
+    console.log("Test App addCategoryNGClick")
     currentCategory = 'cricket';
-    $location.path = "/viewEvents"
+    $location.path("/viewEvents");
+    console.log("Test App after location metjh")
     };
 
 $scope.showChess = function() {
-    alert("Test App addCategoryNGClick")
+    console.log("Test App addCategoryNGClick")
     currentCategory = 'chess';
     
     $location.path = "/viewEvents"
     };
 
 $scope.showFancyDress = function() {
-    alert("Test App addCategoryNGClick")
+    console.log("Test App addCategoryNGClick")
     currentCategory = 'FancyDress';
     $location.path = "/viewEvents"
     };
