@@ -30,13 +30,13 @@ $scope.showChess = function() {
     console.log("Test App addCategoryNGClick")
     currentCategory = 'chess';
     
-    $location.path = "/viewEvents"
+    $location.path("/viewEvents");
     };
 
 $scope.showFancyDress = function() {
     console.log("Test App addCategoryNGClick")
     currentCategory = 'FancyDress';
-    $location.path = "/viewEvents"
+    $location.path("/viewEvents");
     };
 
 
