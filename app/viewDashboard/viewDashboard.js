@@ -1,20 +1,20 @@
 'use strict';
 
-angular.module('myApp.viewEvents', ['ngRoute'])
+angular.module('myApp.viewDashboard', ['ngRoute'])
 
         .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/viewEvents', {
-            templateUrl: 'viewEvents/viewEvents.html',
-            controller: 'ViewEventsCtrl'
+        $routeProvider.when('/viewDashboard', {
+            templateUrl: 'viewDashboard/viewDashboard.html',
+            controller: 'ViewDashboardCtrl'
         });
     }])
 
-        .controller('ViewEventsCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
+        .controller('ViewDashboardCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
         $scope.errorMessage = '';
 
 
 
-        var url = "http://localhost:9000/getEvent/" + currentCategory;
+        var url = "http://localhost:9000/getDashBoard/" + currentCategory;
         console.log('URL built is ' + url)
 
 
@@ -25,9 +25,9 @@ angular.module('myApp.viewEvents', ['ngRoute'])
 
         responsePromise.success(function(data, status, headers, config) {
 //                    $scope.myData = data.eventName;
-            console.log("data:" + data[0].eventName)
+            console.log("data:" + data[0])
 
-            $scope.events = data;
+            $scope.comments = data;
         });
         responsePromise.error(function(data, status, headers, config) {
 //                    alert("AJAX failed!"+headers);

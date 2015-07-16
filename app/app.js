@@ -7,6 +7,7 @@ angular.module('myApp', [
   'myApp.view2',
   'myApp.addEvent',
   'myApp.viewEvents',
+  'myApp.viewDashboard',
   'myApp.addCategory',
   'myApp.category',
   'myApp.addUserComment',
