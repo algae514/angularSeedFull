@@ -1,0 +1,23 @@
+<ion-content scroll="true" >
+<span class="label label-danger">{{errorMessage }}</span>
+<h1>News Feed</h1>
+
+<div class="row"  ng-repeat="comment in comments">
+    <div class="col-xs-12" >
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Admin Comment
+            </div>
+            <div class="panel-body">
+                {{comment.commentText}}
+            </div>        
+            <div class="panel-footer">
+                on {{comment.timeOfComment}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<button ng-click="goHome()">Home</button>
+</ion-content>
